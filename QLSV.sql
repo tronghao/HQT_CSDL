@@ -200,6 +200,7 @@ from DANG_KY_HOC
 	as
 	select *
 	from SINH_VIEN
+	go
 	
 	--2. Hiển thị danh sách tất cả các sinh viên(gồm: họ tên sinh viên, tên lớp, tên khoa)
 	create view dsSinhVien2_View
@@ -208,6 +209,7 @@ from DANG_KY_HOC
 	from SINH_VIEN, LOP, KHOA
 	where SINH_VIEN.MaLop = LOP.MaLop
 	and LOP.MaKhoa = KHOA.MaKhoa
+	go
 	
 	--3. Hiển thị danh sách các giảng viên(gồm họ tên giảng viên, tên khoa)
 	create view dsGiangVien_View
@@ -215,6 +217,7 @@ from DANG_KY_HOC
 	select gv.HoTenGV, KHOA.TenKhoa
 	from GIANG_VIEN as gv, KHOA
 	where gv.MaKhoa = KHOA.MaKhoa
+	go
 	
 	--4. Hiển thị danh sách các giảng viên giảng dạy các môn học (Tên giảng viên, tên khoa, tên môn học)
 	create view dsGiangDay
@@ -224,6 +227,7 @@ from DANG_KY_HOC
 	where gv.MaKhoa = KHOA.MaKhoa
 	and gd.MaGV = gv.MaGV
 	and gd.MaMon = mh.MaMon
+	go
 	
 	--5. Hiển thị danh sách các giảng viên không dạy môn học nào trong năm học 2011-2012
 	create view dsGVKhongDay
@@ -235,6 +239,7 @@ from DANG_KY_HOC
 			select MaGV
 			from dsGiangDay
 		)
+	go
 	
 --xem view
 select * from dsSinhVien_View
